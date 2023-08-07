@@ -1,4 +1,4 @@
-package com.example.admin.user.user;
+package com.example.admin.user;
 
 import com.shopme.common.entity.User;
 import org.springframework.data.repository.CrudRepository;
