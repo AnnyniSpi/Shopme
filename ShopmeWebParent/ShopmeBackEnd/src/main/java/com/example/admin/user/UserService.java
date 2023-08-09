@@ -2,6 +2,7 @@ package com.example.admin.user;
 
 import com.shopme.common.entity.Role;
 import com.shopme.common.entity.User;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
+@Transactional
 public class UserService {
 
     @Autowired
