@@ -109,4 +109,10 @@ public class UserRepositoryTest {
         Integer id = 1;
         repo.updateEnableStatus(id, false);
     }
+
+    @Test
+    public void testEnableUser(){
+        Integer id = 6;
+        repo.updateEnableStatus(id, true);
+    }
 }
