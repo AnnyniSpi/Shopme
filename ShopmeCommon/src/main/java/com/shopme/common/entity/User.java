@@ -38,6 +38,14 @@ public class User {
     )
     private Set<Role> roles = new HashSet<>();
 
+    @Transient
+    public String getPhotosImagePath(){
+        if (id == null || photos == null){
+            return "/images/default-user.png";
+        }
+        return "/user-photos/" + this.id + "/" + this.photos;
+    }
+
     public User() {
     }
 
@@ -126,4 +134,6 @@ public class User {
                 ", roles=" + roles +
                 '}';
     }
+
+
 }
