@@ -4,6 +4,7 @@ import com.example.admin.FileUploadUtil;
 import com.shopme.common.entity.Role;
 import com.shopme.common.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -27,6 +28,20 @@ public class UserController {
     @GetMapping("/users")
     public String listAll(Model model){
         List<User> listUsers = service.listAll();
+        model.addAttribute("listUsers", listUsers);
+
+        return "users";
+    }
+
+    @GetMapping("/users/page/{pageNum}")
+    public String listByPage(@PathVariable(name = "pageNum") int pageNum, Model model){
+        Page<User> page = service.listByPage(pageNum);
+        List<User> listUsers = page.getContent();
+
+        System.out.println("Page num = " + pageNum);
+        System.out.println("Total elements = " + pageNum);
+        System.out.println("Total pages = " + pageNum);
+
         model.addAttribute("listUsers", listUsers);
 
         return "users";
